@@ -90,7 +90,7 @@ export CHARTLOC=$(location """ + chart + """)
 EXPLICIT_NAMESPACE=""" + namespace + """
 EXPLICIT_CONTEXT=""" + context + """
 NAMESPACE=\$${EXPLICIT_NAMESPACE:-\$$NAMESPACE}
-CONTEXT=\$${EXPLICIT_CONTEXT:-\$$CONTEXT}
+CONTEXT=\$${EXPLICIT_CONTEXT:-}
 export NS=\$${NAMESPACE:-\$${BUILD_USER}}
 export CTX=\$${CONTEXT:-$$(kubectl config current-context)}
 if [ "\$$1" == "upgrade" ]; then
