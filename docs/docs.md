@@ -54,7 +54,7 @@ Defines a helm chart (directory containing a Chart.yaml).
 ## helm_release
 
 <pre>
-helm_release(<a href="#helm_release-name">name</a>, <a href="#helm_release-release_name">release_name</a>, <a href="#helm_release-chart">chart</a>, <a href="#helm_release-values_yaml">values_yaml</a>, <a href="#helm_release-namespace">namespace</a>)
+helm_release(<a href="#helm_release-name">name</a>, <a href="#helm_release-release_name">release_name</a>, <a href="#helm_release-chart">chart</a>, <a href="#helm_release-values_yaml">values_yaml</a>, <a href="#helm_release-namespace">namespace</a>, <a href="#helm_release-context">context</a>)
 </pre>
 
 Defines a helm release.
@@ -118,8 +118,14 @@ A given target has the following executable targets generated:
       <td>
         optional. default is <code>""</code>
         <p>
-          The namespace to install the release into. If empty will default the NAMESPACE environment variable and will fall back the the current username (via BUILD_USER).
+          The namespace to install the release into. If empty will default the NAMESPACE environment variable and will fall back the "default".
         </p>
+      </td>
+    </tr>
+    <tr id="helm_release-context">
+      <td><code>context</code></td>
+      <td>
+        optional. default is <code>""</code>
       </td>
     </tr>
   </tbody>

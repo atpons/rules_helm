@@ -77,7 +77,7 @@ def helm_release(name, release_name, chart, values_yaml, namespace = "", context
         release_name: name of the release.
         chart: The chart defined by helm_chart.
         values_yaml: The values.yaml file to supply to the release.
-        namespace: The namespace to install the release into. If empty will default the NAMESPACE environment variable and will fall back the the current username (via BUILD_USER).
+        namespace: The namespace to install the release into. If empty will default the NAMESPACE environment variable and will fall back the "default".
     """
     helm_cmd_name = name + "_run_helm_cmd.sh"
     native.genrule(
@@ -89,7 +89,7 @@ def helm_release(name, release_name, chart, values_yaml, namespace = "", context
 export CHARTLOC=$(location """ + chart + """)
 EXPLICIT_NAMESPACE=""" + namespace + """
 EXPLICIT_CONTEXT=""" + context + """
-NAMESPACE=\$${EXPLICIT_NAMESPACE:-\$$NAMESPACE}
+NAMESPACE=\$${EXPLICIT_NAMESPACE:-default}
 CONTEXT=\$${EXPLICIT_CONTEXT:-\$$(kubectl config current-context)}
 export NS=\$${NAMESPACE:-\$${BUILD_USER}}
 export CTX=\$${CONTEXT:-}
