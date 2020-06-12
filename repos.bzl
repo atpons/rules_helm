@@ -21,6 +21,6 @@ def helm_repositories():
     http_archive(
         name = "helm_osx",
         sha256 = "3062b35ec858b55810623f105eaa092a13676151d494cc8b1f0798b7354f555f",
-        urls = ["https://get.helm.sh/helm-v3.2.3-alpha.1-darwin-amd64.tar.gz"],
+        urls = ["https://get.helm.sh/helm-v3.2.3-darwin-amd64.tar.gz"],
         build_file = "@com_github_tmc_rules_helm//:helm.BUILD",
     )
