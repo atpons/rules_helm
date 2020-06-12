@@ -36,7 +36,6 @@ fi
 
 export HELM_HOME="$(pwd)/.helm"
 export PATH="$(dirname $BINARY):$PATH"
-helm init >/dev/null
 
 cd "${BUILD_WORKING_DIRECTORY:-}"
 helm $*
